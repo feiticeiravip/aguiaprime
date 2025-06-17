@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V0N3WWWQ7V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-V0N3WWWQ7V');
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: blob:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; frame-src *; connect-src *;">
-  <meta name="description" content="Banca Águia Prime Oficial - Melhor aplicativo do Brasil">
-  <meta name="keywords" content="Banca Águia Prime, apostas online, cassino online, aguiaprime.vip, bônus apostas">
+  <meta name="description" content="Águia Prime - Sua plataforma de bancas online">
+  <meta name="keywords" content="Águia Prime, banca águia prime melhor banca do Brasil">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="Banca Águia Prime - Apostas e Cassino Online">
-  <meta property="og:description" content="Junte-se à Banca Águia Prime e ganhe 30% de bônus no primeiro depósito! Acesse aguiaprime.vip para diversão e prêmios.">
+  <meta property="og:title" content="Banca Águia Prime">
+  <meta property="og:description" content="Melhores bancas online: Tiger Club, Águia Oficial, Brasileira, Brazz!">
   <meta property="og:url" content="https://aguiaprime.vip">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://aguiaprime.vip/og-image.jpg">
-  <title>Banca Águia Prime - Melhor banca do Brasil</title>
-  <link rel="icon" href="https://via.placeholder.com/32.png?text=AP" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <title>Banca Águia Prime</title>
+  <link rel="icon" href="icon.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
@@ -23,24 +32,24 @@
       padding: 0;
     }
     body, html {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(180deg, #e6ecf2, #f4f7fa);
+      font-family: 'Roboto', sans-serif;
+      background: #f4f6f8;
       height: 100vh;
       display: flex;
       flex-direction: column;
-      color: #1e2a44;
+      color: #1a1a1a;
       overflow-x: hidden;
     }
     header {
-      background: linear-gradient(135deg, #2e6d9f, #1a3c5e);
+      background: linear-gradient(135deg, #805e02, #805e02);
       display: flex;
       align-items: center;
-      justify-content: center;
       padding: 10px 20px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
       height: 50px;
-      position: sticky;
+      position: fixed;
       top: 0;
+      width: 100%;
       z-index: 10;
     }
     header img {
@@ -59,252 +68,110 @@
     }
     #main-content {
       flex: 1;
+      margin-top: 50px;
+      margin-bottom: 60px;
       overflow-y: auto;
-      padding-bottom: 70px;
+      display: flex;
+      flex-direction: column;
     }
-    #jogar, #palpites-container, #sobre {
+    #tiger, #aguia, #brasileira, #brazz, #suporte {
       width: 100%;
+      height: 100%;
       transition: opacity 0.5s ease-in-out, transform 0.3s ease;
     }
-    #palpites-container {
-      padding: 20px;
-      max-width: 700px;
+    #suporte {
+      padding: 16px;
+      max-width: 600px;
       margin: 0 auto;
       display: none;
     }
-    #palpites, #sobre {
-      padding: 20px;
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    #suporte-content {
+      padding: 16px;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
       width: 100%;
       opacity: 0;
     }
-    #palpites.visible, #sobre.visible {
+    #suporte-content.visible {
       opacity: 1;
       transform: translateY(0);
     }
-    #sobre {
-      display: none;
-      max-width: 700px;
-      margin: 20px auto;
-    }
     iframe {
       width: 100%;
-      height: calc(100vh - 120px);
+      height: 100%;
       border: none;
       display: block;
       border-radius: 10px;
     }
     footer {
-      background: linear-gradient(135deg, #1a3c5e, #2e6d9f);
+      background: linear-gradient(135deg, #805e02, #805e02);
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      flex-direction: column;
       padding: 10px;
       border-top: 2px solid #e0e6ec;
       position: fixed;
       bottom: 0;
       width: 100%;
       height: 60px;
-      box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
       z-index: 10;
       gap: 6px;
     }
+    .footer-bar {
+      background: linear-gradient(135deg, #7bbdff, #1a3c5e);
+      height: 20px;
+      width: 100%;
+      position: fixed;
+      bottom: -20px;
+      z-index: 9;
+    }
+    footer .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 48px;
+      gap: 4px;
+    }
     footer button {
-      background: transparent;
-      border: none;
-      font-size: 13px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      font-size: 14px;
       font-weight: 500;
       color: #fff;
       cursor: pointer;
-      padding: 10px 15px;
+      padding: 4px;
       border-radius: 8px;
-      transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+      transition: all 0.3s;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 8px;
+      gap: 4px;
       flex: 1;
       justify-content: center;
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;
     }
+    footer button.selected {
+      background: rgba(255, 255, 255, 0.3);
+      font-weight: 600;
+    }
+    footer button img {
+      height: 28px;
+      width: 28px;
+    }
+    footer button i {
+      font-size: 28px;
+    }
     footer button:hover {
-      background: rgba(255, 255, 255, 0.1);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
     footer button:active {
       transform: scale(0.95);
     }
-    select, button:not(footer button) {
-      padding: 14px;
-      border-radius: 10px;
-      border: 1px solid #d1d9e0;
-      background: #f9fcff;
-      font-size: 15px;
-      width: 100%;
-      margin: 10px 0;
-      transition: border-color 0.3s, box-shadow 0.3s, transform 0.2s;
-    }
-    select {
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='%231e2a44' viewBox='0 0 16 16'%3E%3Cpath d='M8 11.5l-6-6L3.5 4l4.5 4.5L12.5 4 14 5.5l-6 6z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 14px center;
-    }
-    select:focus, button:focus {
-      border-color: #2e6d9f;
-      box-shadow: 0 0 0 4px rgba(46, 109, 159, 0.2);
-      outline: none;
-    }
-    button:not(footer button) {
-      background: #2e6d9f;
-      color: #fff;
-      font-weight: 600;
-      cursor: pointer;
-      border: none;
-      transition: background 0.3s, transform 0.2s;
-    }
-    button:not(footer button):hover {
-      background: #1a3c5e;
-      transform: translateY(-2px);
-    }
-    button:not(footer button):active {
-      transform: scale(0.98);
-    }
-    button.green {
-      background: #34c759;
-    }
-    button.green:hover {
-      background: #28a745;
-    }
-    button:disabled {
-      background: #d1d9e0;
-      cursor: not-allowed;
-      transform: none;
-    }
-    label {
-      font-size: 15px;
-      font-weight: 500;
-      color: #1e2a44;
-      margin-bottom: 8px;
-      display: block;
-    }
-    .section {
-      margin-bottom: 24px;
-      padding: 20px;
-      background: #f9fcff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s ease;
-    }
-    .section:hover {
-      transform: translateY(-4px);
-    }
-    .palpite-result, .puxadas, .sobre-content {
-      margin: 14px 0;
-      padding: 18px;
-      background: #fff;
-      border: 1px solid #e0e6ec;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
-    }
-    .milhares {
-      margin-bottom: 10px;
-      font-size: 15px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    h2 {
-      color: #2e6d9f;
-      font-size: 22px;
-      font-weight: 600;
-      margin-bottom: 14px;
-    }
-    h3 {
-      color: #1e2a44;
-      font-size: 18px;
-      font-weight: 500;
-      margin-bottom: 12px;
-    }
-    p {
-      font-size: 15px;
-      margin-bottom: 12px;
-      color: #4a5b76;
-    }
-    ul {
-      list-style: disc;
-      padding-left: 24px;
-      margin: 0;
-      font-size: 15px;
-    }
-    li {
-      margin-bottom: 8px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 14px 0;
-      font-size: 15px;
-    }
-    th, td {
-      border: 1px solid #e0e6ec;
-      padding: 10px;
-      text-align: left;
-    }
-    th {
-      background: #f9fcff;
-      font-weight: 600;
-      color: #1e2a44;
-    }
-    .hidden {
-      display: none;
-    }
-    .error {
-      color: #e63946;
-      font-size: 15px;
-      margin: 12px 0;
-      padding: 12px;
-      background: #fff1f2;
-      border-radius: 8px;
-    }
-    .success {
-      color: #34c759;
-      font-size: 15px;
-      margin: 12px 0;
-      padding: 12px;
-      background: #f0fdf4;
-      border-radius: 8px;
-    }
-    .loading {
-      font-size: 15px;
-      color: #1e2a44;
-      margin: 12px 0;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .loading::before {
-      content: '';
-      width: 18px;
-      height: 18px;
-      border: 3px solid #2e6d9f;
-      border-top-color: transparent;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
     @media (max-width: 768px) {
-      #palpites-container, #sobre {
-        padding: 15px;
-      }
-      #palpites, #sobre {
-        max-width: 100%;
-      }
       header {
         padding: 8px 15px;
       }
@@ -314,561 +181,122 @@
       header h1 {
         font-size: 16px;
       }
-      h2 {
-        font-size: 20px;
+      #main-content {
+        margin-top: 50px;
+        margin-bottom: 60px;
       }
-      h3 {
-        font-size: 16px;
-      }
-      select, button:not(footer button) {
-        font-size: 14px;
+      #suporte {
         padding: 12px;
       }
+      #suporte-content {
+        max-width: 100%;
+      }
       footer {
-        padding: 8px;
-        height: 55px;
-        gap: 4px;
+        padding: 6px;
+        height: 60px;
+        bottom: 0;
+      }
+      .footer-bar {
+        height: 20px;
+        bottom: -20px;
+      }
+      footer .row {
+        height: 40px;
       }
       footer button {
-        font-size: 11px;
-        padding: 8px 10px;
+        font-size: 12px;
+        padding: 4px;
       }
-      iframe {
-        height: calc(100vh - 110px);
+      footer button img {
+        height: 24px;
+        width: 24px;
       }
-      table {
-        font-size: 14px;
-      }
-      th, td {
-        padding: 8px;
+      footer button i {
+        font-size: 24px;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>BANCA TIGER CLUB</h1>
+    <img src="icon.png" alt="Vivi JB Logo">
+    <h1>AGUIA PRIME</h1>
   </header>
 
   <div id="main-content">
-    <div id="jogar">
-      <iframe id="embeddedIframe" allow="clipboard-read; clipboard-write" src="https://app.tigersclub.vip/pr/hOprBfRL" loading="lazy" sandbox="allow-scripts allow-same-origin allow-clipboard-write"></iframe>
+    <div id="tiger">
+      <iframe allow="clipboard-read; clipboard-write" src="https://app.tigersclub.vip/pr/hOprBfRL" loading="lazy" sandbox="allow-scripts allow-same-origin allow-clipboard-write"></iframe>
     </div>
-    <div id="palpites-container">
-      <div id="palpites">
-        <div class="section">
-          <h2>Gerar Palpites</h2>
-          <label for="bancaSelect">Escolha a Banca:</label>
-          <select id="bancaSelect">
-            <option value="">Selecione uma banca</option>
-            <option value="PT Rio">PT Rio</option>
-            <option value="Look GO">Look GO</option>
-            <option value="Nacional">Nacional</option>
-            <option value="Maluca BA">Maluca BA</option>
-            <option value="Lotep">Lotep</option>
-          </select>
-          <button id="gerarPalpites" disabled>Gerar Palpites</button>
-          <div class="palpite-result" id="palpiteOutput"></div>
-        </div>
-        <div class="section">
-          <h2>Consultar Puxadas</h2>
-          <label for="animalSelect">Escolha um Animal:</label>
-          <select id="animalSelect">
-            <option value="">Selecione um animal</option>
-          </select>
-          <button id="verPuxada" class="hidden">Ver Puxadas</button>
-          <div class="puxadas" id="puxadaResult"></div>
-        </div>
-      </div>
+    <div id="aguia" class="hidden">
+      <iframe allow="clipboard-read; clipboard-write" src="https://app.aguiaoficial.com/pr/XvrHVdt2" loading="lazy" sandbox="allow-scripts allow-same-origin allow-clipboard-write"></iframe>
     </div>
-    <div id="sobre">
-      <div class="section">
-        <h2>Sobre</h2>
-        <div class="sobre-content">
-          <p>Participe da Banca Águia Prime e aproveite nossos bônus exclusivos:</p>
-          <ul>
-            <li>30% de bônus na primeira recarga para novos cadastros até 300 reais.</li>
-            <li>20% de bônus em dias de loterias federais.</li>
-            <li>15% de bônus em dias normais.</li>
-          </ul>
-          <h3>Cotação</h3>
-          <table>
-            <thead>
-              <tr>
-                <th>Tipo</th>
-                <th>Valor (R$)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>Unidade</td><td>8,00</td></tr>
-              <tr><td>Grupo</td><td>20,00</td></tr>
-              <tr><td>Dezena</td><td>80,00</td></tr>
-              <tr><td>Centena</td><td>800,00</td></tr>
-              <tr><td>Milhar</td><td>8.000,00</td></tr>
-              <tr><td>Duque GP</td><td>180,00</td></tr>
-              <tr><td>Terno GP</td><td>1.500,00</td></tr>
-              <tr><td>Quadra GP</td><td>1.000,00</td></tr>
-              <tr><td>Quina GP (8/5)</td><td>1.000,00</td></tr>
-              <tr><td>Sena GP (10/6)</td><td>1.000,00</td></tr>
-              <tr><td>Duque Dez</td><td>300,00</td></tr>
-              <tr><td>Terno Dez Seco</td><td>10.000,00</td></tr>
-              <tr><td>Terno Dez</td><td>5.000,00</td></tr>
-              <tr><td>Passe Vai</td><td>90,00</td></tr>
-              <tr><td>Passe Vai Vem</td><td>45,00</td></tr>
-            </tbody>
-          </table>
-          <h3>Políticas e Privacidade</h3>
-          <div class="sobre-content">
-            <p><strong>Política de Privacidade</strong></p>
-            <p>Na Banca Águia Prime, sua privacidade é prioridade. Coletamos apenas dados essenciais para nossos serviços, como nome e telefone, protegidos com segurança avançada. Não compartilhamos informações com terceiros, salvo por obrigação legal ou com seu consentimento. Cookies são usados para melhorar sua experiência, mas podem ser desativados.</p>
-            <p><strong>Termos de Uso</strong></p>
-            <p>Ao usar a Banca Águia Prime, você concorda com nossas regras. O serviço é para maiores de 18 anos, e tentativas de fraude resultam em suspensão. Bônus seguem regras promocionais e não são transferíveis. Podemos atualizar os termos, notificando os usuários previamente.</p>
-            <p>Para suporte, contate-nos via WhatsApp: <a href="https://wa.me/5583991177252">+55 83 99117-7252</a>.</p>
-          </div>
-        </div>
-      </div>
+    <div id="brasileira" class="hidden">
+      <iframe allow="clipboard-read; clipboard-write" src="https://app.bancabrasileira.com.br/pr/UBmDxM8X" loading="lazy" sandbox="allow-scripts allow-same-origin allow-clipboard-write"></iframe>
+    </div>
+    <div id="brazz" class="hidden">
+      <iframe allow="clipboard-read; clipboard-write" src="https://app.brazz.club/pr/oC7VMz8A" loading="lazy" sandbox="allow-scripts allow-same-origin allow-clipboard-write"></iframe>
+    </div>
+    <div id="suporte" class="hidden">
+      <div id="suporte-content"></div>
     </div>
   </div>
-
   <footer>
-    <button onclick="window.open('https://wa.me/5583991177252?text=Suporte%2C+preciso+de+ajuda', '_blank')">
-      <i class="fab fa-whatsapp"></i> Suporte
-    </button>
-    <button onclick="window.open('https://app.tigersclub.vip/pr/hOprBfRL', '_blank')">
-      <i class="fas fa-dice"></i> Cassino
-    </button>
-    <button onclick="mostrar('jogar')">
-      <i class="fas fa-play"></i> Jogar
-    </button>
-    <button onclick="mostrar('palpites')">
-      <i class="fas fa-chart-line"></i> Palpites
-    </button>
-    <button onclick="mostrar('sobre')">
-      <i class="fas fa-info-circle"></i> Sobre
-    </button>
+    <div class="row">
+      <button onclick="mostrar('tiger')" class="selected">
+        <img src="tiger.png" alt="Tiger Club">
+        Tiger Club
+      </button>
+      <button onclick="mostrar('aguia')">
+        <img src="aguia.png" alt="Águia Oficial">
+        Águia Oficial
+      </button>
+      <button onclick="mostrar('brasileira')">
+        <img src="bra.png" alt="Brasileira">
+        Brasileira
+      </button>
+      <button onclick="mostrar('brazz')">
+        <img src="brazz.png" alt="Brazz">
+        Brazz
+      </button>
+      <button onclick="mostrar('suporte')">
+        <i class="fab fa-whatsapp"></i>
+        Suporte
+      </button>
+    </div>
   </footer>
+  <div class="footer-bar"></div>
 
   <script>
-    try {
-      const animals = [
-        { name: 'Avestruz', emoji: '🦢', group: 1, tens: ['01', '02', '03', '04'] },
-        { name: 'Águia', emoji: '🦅', group: 2, tens: ['05', '06', '07', '08'] },
-        { name: 'Burro', emoji: '🦙', group: 3, tens: ['09', '10', '11', '12'] },
-        { name: 'Borboleta', emoji: '🦋', group: 4, tens: ['13', '14', '15', '16'] },
-        { name: 'Cachorro', emoji: '🐶', group: 5, tens: ['17', '18', '19', '20'] },
-        { name: 'Cabra', emoji: '🐐', group: 6, tens: ['21', '22', '23', '24'] },
-        { name: 'Carneiro', emoji: '🐏', group: 7, tens: ['25', '26', '27', '28'] },
-        { name: 'Camelo', emoji: '🐪', group: 8, tens: ['29', '30', '31', '32'] },
-        { name: 'Cobra', emoji: '🐍', group: 9, tens: ['33', '34', '35', '36'] },
-        { name: 'Coelho', emoji: '🐰', group: 10, tens: ['37', '38', '39', '40'] },
-        { name: 'Cavalo', emoji: '🐎', group: 11, tens: ['41', '42', '43', '44'] },
-        { name: 'Elefante', emoji: '🐘', group: 12, tens: ['45', '46', '47', '48'] },
-        { name: 'Galo', emoji: '🐓', group: 13, tens: ['49', '50', '51', '52'] },
-        { name: 'Gato', emoji: '🐱', group: 14, tens: ['53', '54', '55', '56'] },
-        { name: 'Jacaré', emoji: '🐊', group: 15, tens: ['57', '58', '59', '60'] },
-        { name: 'Leão', emoji: '🦁', group: 16, tens: ['61', '62', '63', '64'] },
-        { name: 'Macaco', emoji: '🐒', group: 17, tens: ['65', '66', '67', '68'] },
-        { name: 'Porco', emoji: '🐷', group: 18, tens: ['69', '70', '71', '72'] },
-        { name: 'Pavão', emoji: '🦚', group: 19, tens: ['73', '74', '75', '76'] },
-        { name: 'Peru', emoji: '🦃', group: 20, tens: ['77', '78', '79', '80'] },
-        { name: 'Touro', emoji: '🐂', group: 21, tens: ['81', '82', '83', '84'] },
-        { name: 'Tigre', emoji: '🐅', group: 22, tens: ['85', '86', '87', '88'] },
-        { name: 'Urso', emoji: '🐻', group: 23, tens: ['89', '90', '91', '92'] },
-        { name: 'Veado', emoji: '🦌', group: 24, tens: ['93', '94', '95', '96'] },
-        { name: 'Vaca', emoji: '🐄', group: 25, tens: ['97', '98', '99', '00'] }
-      ];
+    function mostrar(id) {
+      const tiger = document.getElementById('tiger');
+      const aguia = document.getElementById('aguia');
+      const brasileira = document.getElementById('brasileira');
+      const brazz = document.getElementById('brazz');
+      const suporte = document.getElementById('suporte');
+      const suporteContent = document.getElementById('suporte-content');
 
-      const bancas = {
-        'PT Rio': {
-          schedules: {
-            'Domingo': ['09:30', '11:30', '14:30', '16:30'],
-            'Segunda': ['09:30', '11:30', '14:30', '16:30', '18:30', '21:30'],
-            'Terça': ['09:30', '11:30', '14:30', '16:30', '18:30', '21:30'],
-            'Quarta': ['09:30', '11:30', '14:30', '16:30', '19:00', '21:30'],
-            'Quinta': ['09:30', '11:30', '14:30', '16:30', '18:30', '21:30'],
-            'Sexta': ['09:30', '11:30', '14:30', '16:30', '18:30', '21:30'],
-            'Sábado': ['09:30', '11:30', '14:30', '16:30', '19:00', '21:30']
-          }
-        },
-        'Look GO': {
-          schedules: {
-            'Domingo': ['09:00', '11:00', '14:00', '16:00', '18:00', '21:00'],
-            'Segunda': ['09:00', '11:00', '14:00', '16:00', '18:00', '21:00'],
-            'Terça': ['09:00', '11:00', '14:00', '16:00', '18:00', '21:00'],
-            'Quarta': ['09:00', '11:00', '14:00', '16:00', '18:00', '19:00', '21:00'],
-            'Quinta': ['09:00', '11:00', '14:00', '16:00', '18:00', '21:00'],
-            'Sexta': ['09:00', '11:00', '14:00', '16:00', '18:00', '21:00'],
-            'Sábado': ['09:00', '11:00', '14:00', '16:00', '18:00', '19:00', '21:00']
-          }
-        },
-        'Nacional': {
-          schedules: {
-            'Domingo': ['02:00', '08:00', '10:00', '12:00', '15:00', '17:00', '20:00', '23:00'],
-            'Segunda': ['02:00', '08:00', '10:00', '12:00', '15:00', '17:00', '20:00', '23:00'],
-            'Terça': ['02:00', '08:00', '10:00', '12:00', '15:00', '17:00', '20:00', '23:00'],
-            'Quarta': ['02:00', '08:00', '10:00', '12:00', '15:00', '17:00', '20:00', '23:00'],
-            'Quinta': ['02:00', '08:00', '10:00', '12:00', '15:00', '17:00', '20:00', '23:00'],
-            'Sexta': ['02:00', '08:00', '10:00', '12:00', '15:00', '17:00', '20:00', '23:00'],
-            'Sábado': ['02:00', '08:00', '10:00', '12:00', '15:00', '17:00', '20:00', '23:00']
-          }
-        },
-        'Maluca BA': {
-          schedules: {
-            'Domingo': ['10:00', '12:00', '15:00'],
-            'Segunda': ['10:00', '12:00', '15:00', '19:00', '21:00'],
-            'Terça': ['10:00', '12:00', '15:00', '19:00', '21:00'],
-            'Quarta': ['10:00', '12:00', '15:00', '19:00', '21:00'],
-            'Quinta': ['10:00', '12:00', '15:00', '19:00', '21:00'],
-            'Sexta': ['10:00', '12:00', '15:00', '19:00', '21:00'],
-            'Sábado': ['10:00', '12:00', '15:00', '19:00', '21:00']
-          }
-        },
-        'Lotep': {
-          schedules: {
-            'Domingo': ['10:45', '12:45'],
-            'Segunda': ['10:45', '12:45', '15:45', '18:00'],
-            'Terça': ['10:45', '12:45', '15:45', '18:00'],
-            'Quarta': ['10:45', '12:45', '15:45', '18:00', '19:00'],
-            'Quinta': ['10:45', '12:45', '15:45', '18:00'],
-            'Sexta': ['10:45', '12:45', '15:45', '18:00'],
-            'Sábado': ['10:45', '12:45', '15:45', '18:00', '19:00']
-          }
-        }
-      };
-
-      const puxadas = {
-        'Avestruz': ['Pavão', 'Águia', 'Galo'],
-        'Águia': ['Avestruz', 'Galo', 'Pavão'],
-        'Burro': ['Cavalo', 'Vaca', 'Touro'],
-        'Borboleta': ['Gato', 'Cobra', 'Coelho'],
-        'Cachorro': ['Galo', 'Camelo', 'Macaco'],
-        'Cabra': ['Vaca', 'Carneiro', 'Touro'],
-        'Carneiro': ['Cabra', 'Vaca', 'Touro'],
-        'Camelo': ['Cachorro', 'Urso', 'Avestruz'],
-        'Cobra': ['Borboleta', 'Jacaré', 'Gato'],
-        'Coelho': ['Borboleta', 'Gato', 'Cobra'],
-        'Cavalo': ['Burro', 'Vaca', 'Carneiro'],
-        'Elefante': ['Urso', 'Touro', 'Leão'],
-        'Galo': ['Avestruz', 'Águia', 'Pavão'],
-        'Gato': ['Borboleta', 'Cobra', 'Coelho'],
-        'Jacaré': ['Cobra', 'Porco', 'Borboleta'],
-        'Leão': ['Elefante', 'Tigre', 'Urso'],
-        'Macaco': ['Cachorro', 'Gato', 'Leão'],
-        'Porco': ['Jacaré', 'Vaca', 'Cabra'],
-        'Pavão': ['Avestruz', 'Galo', 'Águia'],
-        'Peru': ['Galo', 'Pavão', 'Avestruz'],
-        'Touro': ['Carneiro', 'Vaca', 'Cabra'],
-        'Tigre': ['Leão', 'Porco', 'Elefante'],
-        'Urso': ['Camelo', 'Elefante', 'Leão'],
-        'Veado': ['Coelho', 'Borboleta', 'Gato'],
-        'Vaca': ['Cabra', 'Carneiro', 'Touro']
-      };
-
-      function mostrar(id) {
-        console.log(`mostrar: id=${id}`);
-        try {
-          const jogar = document.getElementById('jogar');
-          const palpitesContainer = document.getElementById('palpites-container');
-          const sobre = document.getElementById('sobre');
-          const palpites = document.getElementById('palpites');
-
-          if (!jogar || !palpitesContainer || !sobre || !palpites) {
-            console.error('Um ou mais elementos principais não encontrados:', { jogar, palpitesContainer, sobre, palpites });
-            document.body.innerHTML = '<p class="error">Erro ao carregar a página. Contate o suporte: <a href="https://wa.me/5583991177252">WhatsApp</a></p>';
-            return;
-          }
-
-          jogar.style.display = id === 'jogar' ? 'block' : 'none';
-          palpitesContainer.style.display = id === 'palpites' ? 'block' : 'none';
-          sobre.style.display = id === 'sobre' ? 'block' : 'none';
-
-          palpites.classList.toggle('visible', id === 'palpites');
-          sobre.classList.toggle('visible', id === 'sobre');
-
-          if (id === 'palpites') {
-            const animalSelect = document.getElementById('animalSelect');
-            const bancaSelect = document.getElementById('bancaSelect');
-            const palpiteOutput = document.getElementById('palpiteOutput');
-            if (animalSelect && bancaSelect && palpiteOutput) {
-              console.log('Inicializando seção Palpites');
-              palpiteOutput.innerHTML = '';
-              populateAnimalSelect();
-              handlePuxada();
-            } else {
-              console.error('Elementos de palpites não encontrados:', { animalSelect, bancaSelect, palpiteOutput });
-              palpitesContainer.innerHTML = '<p class="error">Erro ao carregar a seção Palpites. Contate o suporte: <a href="https://wa.me/5583991177252">WhatsApp</a></p>';
-            }
-          }
-        } catch (e) {
-          console.error('Erro na função mostrar:', e);
-          document.body.innerHTML = '<p class="error">Erro crítico ao carregar a seção. Contate o suporte: <a href="https://wa.me/5583991177252">WhatsApp</a></p>';
-        }
+      if (id === 'suporte') {
+        window.open('https://wa.me/5583991177252?text=Ol%C3%A1%2C%20Suporte.%20Preciso%20de%20ajuda%21', '_blank');
+        return;
       }
 
-      function generateMilhar() {
-        try {
-          return Math.floor(Math.random() * 10000).toString().padStart(4, '0');
-        } catch (e) {
-          console.error('Erro na função generateMilhar:', e);
-          return '0000';
-        }
-      }
+      tiger.style.display = id === 'tiger' ? 'block' : 'none';
+      aguia.style.display = id === 'aguia' ? 'block' : 'none';
+      brasileira.style.display = id === 'brasileira' ? 'block' : 'none';
+      brazz.style.display = id === 'brazz' ? 'block' : 'none';
+      suporte.style.display = 'none';
 
-      function getAnimalByMilhar(milhar) {
-        try {
-          const tens = milhar.slice(-2);
-          return animals.find(animal => animal.tens.includes(tens)) || animals[0];
-        } catch (e) {
-          console.error('Erro na função getAnimalByMilhar:', e);
-          return animals[0];
-        }
-      }
-
-      function getNextDrawTime(banca, now) {
-        console.log(`getNextDrawTime: banca=${banca}, now=${now}`);
-        try {
-          if (!bancas[banca]) {
-            console.warn(`Banca inválida: ${banca}`);
-            return null;
-          }
-          const days = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
-          const today = days[now.getDay()];
-          const schedules = bancas[banca].schedules[today];
-          if (!schedules || schedules.length === 0) {
-            console.warn(`Nenhum horário encontrado para ${banca} em ${today}`);
-            return null;
-          }
-
-          const nowTime = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
-          const nextTime = schedules.find(time => time > nowTime) || schedules[0];
-          let nextDate = new Date(now);
-
-          if (!schedules.find(time => time > nowTime)) {
-            nextDate.setDate(now.getDate() + 1);
-          }
-
-          const [hours, minutes] = nextTime.split(':');
-          nextDate.setHours(parseInt(hours), parseInt(minutes), 0, 0);
-          console.log(`getNextDrawTime: nextTime=${nextTime}, nextDate=${nextDate}`);
-          return { time: nextTime, date: nextDate };
-        } catch (e) {
-          console.error('Erro na função getNextDrawTime:', e);
-          return null;
-        }
-      }
-
-      function generatePalpites(banca, drawTime) {
-        console.log(`generatePalpites: banca=${banca}, drawTime=${drawTime}`);
-        try {
-          const key = `palpites_${banca}_${drawTime}`;
-          const stored = localStorage.getItem(key);
-          if (stored) {
-            console.log(`Palpites recuperados do localStorage: ${key}`);
-            return JSON.parse(stored);
-          }
-
-          const palpites = [];
-          for (let i = 0; i < 10; i++) {
-            const milhar = generateMilhar();
-            const animal = getAnimalByMilhar(milhar);
-            palpites.push({ milhar, animal: `${animal.emoji} ${animal.name}` });
-          }
-
-          localStorage.setItem(key, JSON.stringify(palpites));
-          console.log(`Palpites gerados e salvos: ${key}`);
-          return palpites;
-        } catch (e) {
-          console.error('Erro na função generatePalpites:', e);
-          return [];
-        }
-      }
-
-      function shareOnWhatsApp(banca, drawTime, palpites) {
-        console.log(`shareOnWhatsApp: banca=${banca}, drawTime=${drawTime}`);
-        try {
-          const message = `Palpites para ${banca} - ${drawTime}:\n${palpites.map(p => `${p.milhar} - ${p.animal}`).join('\n')}\n\nACESSE O SITE:\nhttps://aguiaprime.vip/`;
-          const encodedMessage = encodeURIComponent(message);
-          window.open(`https://api.whatsapp.com/send?text=${encodedMessage}`, '_blank');
-        } catch (e) {
-          console.error('Erro na função shareOnWhatsApp:', e);
-        }
-      }
-
-      function displayPalpites() {
-        console.log('displayPalpites: Iniciando');
-        try {
-          const bancaSelect = document.getElementById('bancaSelect');
-          const palpiteOutput = document.getElementById('palpiteOutput');
-          const gerarPalpitesBtn = document.getElementById('gerarPalpites');
-
-          if (!bancaSelect || !palpiteOutput || !gerarPalpitesBtn) {
-            throw new Error('Elementos bancaSelect, palpiteOutput ou gerarPalpitesBtn não encontrados');
-          }
-
-          palpiteOutput.innerHTML = '<p class="loading">Carregando palpites...</p>';
-
-          const selectedBanca = bancaSelect.value;
-          console.log(`displayPalpites: selectedBanca=${selectedBanca}`);
-          if (!selectedBanca) {
-            palpiteOutput.innerHTML = '<p class="error">Por favor, selecione uma banca e clique em "Gerar Palpites".</p>';
-            gerarPalpitesBtn.disabled = true;
-            return;
-          }
-
-          gerarPalpitesBtn.disabled = false;
-          const now = new Date();
-          const nextDraw = getNextDrawTime(selectedBanca, now);
-          console.log(`displayPalpites: nextDraw=${JSON.stringify(nextDraw)}`);
-          if (!nextDraw) {
-            palpiteOutput.innerHTML = '<p class="error">Nenhum horário disponível para hoje.</p>';
-            return;
-          }
-
-          const palpites = generatePalpites(selectedBanca, nextDraw.time);
-          console.log(`displayPalpites: palpites=${JSON.stringify(palpites)}`);
-          if (palpites.length === 0) {
-            palpiteOutput.innerHTML = '<p class="error">Erro ao gerar palpites. Tente novamente.</p>';
-            return;
-          }
-
-          palpiteOutput.innerHTML = `
-            <div>
-              <h3>${selectedBanca} - ${nextDraw.time}</h3>
-              <ul class="mt-3 list-disc pl-5">
-                ${palpites.map(p => `<li class="milhares">${p.milhar} - ${p.animal}</li>`).join('')}
-              </ul>
-              <button id="shareWhatsApp" class="mt-4 green">Compartilhar no WhatsApp</button>
-            </div>
-          `;
-
-          const shareButton = document.getElementById('shareWhatsApp');
-          if (shareButton) {
-            shareButton.addEventListener('click', () => {
-              shareOnWhatsApp(selectedBanca, nextDraw.time, palpites);
-            });
-          } else {
-            console.error('Botão shareWhatsApp não encontrado');
-          }
-        } catch (e) {
-          console.error('Erro na função displayPalpites:', e);
-          const palpiteOutput = document.getElementById('palpiteOutput');
-          if (palpiteOutput) {
-            palpiteOutput.innerHTML = '<p class="error">Erro ao carregar os palpites. Contate o suporte: <a href="https://wa.me/5583991177252">WhatsApp</a></p>';
-          }
-        }
-      }
-
-      function populateAnimalSelect() {
-        console.log('populateAnimalSelect: Iniciando');
-        try {
-          const select = document.getElementById('animalSelect');
-          if (!select) {
-            throw new Error('Elemento animalSelect não encontrado');
-          }
-          select.innerHTML = '<option value="">Selecione um animal</option>';
-          animals.forEach(animal => {
-            const option = document.createElement('option');
-            option.value = animal.name;
-            option.textContent = `${animal.emoji} ${animal.name}`;
-            select.appendChild(option);
-          });
-          console.log('populateAnimalSelect: Concluído');
-        } catch (e) {
-          console.error('Erro na função populateAnimalSelect:', e);
-          const puxadaResult = document.getElementById('puxadaResult');
-          if (puxadaResult) {
-            puxadaResult.innerHTML = '<p class="error">Erro ao carregar os animais. Contate o suporte: <a href="https://wa.me/5583991177252">WhatsApp</a></p>';
-          }
-        }
-      }
-
-      function handlePuxada() {
-        console.log('handlePuxada: Iniciando');
-        try {
-          const select = document.getElementById('animalSelect');
-          const verPuxada = document.getElementById('verPuxada');
-          const puxadaResult = document.getElementById('puxadaResult');
-
-          if (!select || !verPuxada || !puxadaResult) {
-            throw new Error('Elementos de puxada não encontrados');
-          }
-
-          select.addEventListener('change', () => {
-            console.log(`animalSelect change: value=${select.value}`);
-            verPuxada.classList.toggle('hidden', !select.value);
-            puxadaResult.innerHTML = '';
-          });
-
-          verPuxada.addEventListener('click', () => {
-            console.log(`verPuxada click: animal=${select.value}`);
-            const animal = select.value;
-            if (!animal) {
-              puxadaResult.innerHTML = '<p class="error">Selecione um animal para ver as puxadas.</p>';
-              return;
-            }
-
-            const pulls = puxadas[animal] || [];
-            puxadaResult.innerHTML = `
-              <div>
-                <h3>Puxadas para ${animal}</h3>
-                <ul class="list-disc pl-5 mt-2">
-                  ${pulls.length ? pulls.map(pull => `<li>${animals.find(a => a.name === pull).emoji} ${pull}</li>`).join('') : '<li>Nenhuma puxada disponível.</li>'}
-                </ul>
-              </div>
-            `;
-          });
-        } catch (e) {
-          console.error('Erro na função handlePuxada:', e);
-          const puxadaResult = document.getElementById('puxadaResult');
-          if (puxadaResult) {
-            puxadaResult.innerHTML = '<p class="error">Erro ao carregar as puxadas. Contate o suporte: <a href="https://wa.me/5583991177252">WhatsApp</a></p>';
-          }
-        }
-      }
-
-      document.addEventListener('DOMContentLoaded', () => {
-        console.log('DOMContentLoaded: Iniciando');
-        try {
-          const bancaSelect = document.getElementById('bancaSelect');
-          const gerarPalpitesBtn = document.getElementById('gerarPalpites');
-          if (!bancaSelect || !gerarPalpitesBtn) {
-            console.error('Elementos bancaSelect ou gerarPalpitesBtn não encontrados');
-            document.body.innerHTML = '<p class="error">Erro ao carregar a página. Contate o suporte: <a href="https://wa.me/5583991177252">WhatsApp</a></p>';
-            return;
-          }
-
-          bancaSelect.addEventListener('change', () => {
-            console.log(`bancaSelect change: value=${bancaSelect.value}`);
-            const palpiteOutput = document.getElementById('palpiteOutput');
-            if (palpiteOutput) {
-              palpiteOutput.innerHTML = '';
-            }
-            gerarPalpitesBtn.disabled = !bancaSelect.value;
-          });
-
-          gerarPalpitesBtn.addEventListener('click', () => {
-            console.log('gerarPalpitesBtn click');
-            displayPalpites();
-          });
-
-          mostrar('jogar');
-        } catch (e) {
-          console.error('Erro na inicialização:', e);
-          document.body.innerHTML = '<p class="error">Erro ao carregar a página. Contate o suporte: <a href="https://wa.me/5583991177252">WhatsApp</a></p>';
+      document.querySelectorAll('footer button').forEach(button => {
+        button.classList.remove('selected');
+        if (button.getAttribute('onclick') === `mostrar('${id}')`) {
+          button.classList.add('selected');
         }
       });
-
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistrations().then(registrations => {
-          for (let registration of registrations) {
-            registration.unregister().catch(e => console.warn('Erro ao desregistrar service worker:', e));
-          }
-        }).catch(e => console.warn('Erro ao obter registros de service worker:', e));
-      }
-    } catch (e) {
-      console.error('Erro global:', e);
-      document.body.innerHTML = '<p class="error">Erro crítico ao carregar a página. Contate o suporte: <a href="https://wa.me/5583991177252">WhatsApp</a></p>';
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      mostrar('tiger');
+    });
   </script>
 </body>
 </html>
