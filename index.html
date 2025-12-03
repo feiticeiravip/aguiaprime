@@ -9,7 +9,6 @@
     gtag('js', new Date());
     gtag('config', 'G-V0N3WWWQ7V');
   </script>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: blob:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; frame-src *; connect-src *;">
@@ -73,6 +72,7 @@
       overflow-y: auto;
       display: flex;
       flex-direction: column;
+      position: relative;
     }
     #tiger, #aguia, #brasileira, #brazz, #suporte {
       width: 100%;
@@ -171,55 +171,49 @@
     footer button:active {
       transform: scale(0.95);
     }
+
+    /* Botão pequeno para bancabrasileirabet.com.br (SEO) */
+    .seo-link {
+      position: fixed;
+      bottom: 70px;
+      right: 10px;
+      background: #003087;
+      color: #fff;
+      font-size: 11px;
+      padding: 6px 10px;
+      border-radius: 20px;
+      text-decoration: none;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      z-index: 11;
+      opacity: 0.9;
+      transition: all 0.3s;
+    }
+    .seo-link:hover {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
     @media (max-width: 768px) {
-      header {
-        padding: 8px 15px;
+      .seo-link {
+        bottom: 68px;
+        right: 8px;
+        font-size: 10px;
+        padding: 5px 8px;
       }
-      header img {
-        height: 30px;
-      }
-      header h1 {
-        font-size: 16px;
-      }
-      #main-content {
-        margin-top: 50px;
-        margin-bottom: 60px;
-      }
-      #suporte {
-        padding: 12px;
-      }
-      #suporte-content {
-        max-width: 100%;
-      }
-      footer {
-        padding: 6px;
-        height: 60px;
-        bottom: 0;
-      }
-      .footer-bar {
-        height: 20px;
-        bottom: -20px;
-      }
-      footer .row {
-        height: 40px;
-      }
-      footer button {
-        font-size: 12px;
-        padding: 4px;
-      }
-      footer button img {
-        height: 24px;
-        width: 24px;
-      }
-      footer button i {
-        font-size: 24px;
-      }
+      header { padding: 8px 15px; }
+      header img { height: 30px; }
+      header h1 { font-size: 16px; }
+      #main-content { margin-top: 50px; margin-bottom: 60px; }
+      footer { padding: 6px; height: 60px; }
+      footer .row { height: 40px; }
+      footer button { font-size: 12px; }
+      footer button img, footer button i { height: 24px; width: 24px; font-size: 24px; }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="icon.png" alt="Vivi JB Logo">
+    <img src="icon.png" alt="Águia Prime Logo">
     <h1>AGUIA PRIME</h1>
   </header>
 
@@ -240,6 +234,12 @@
       <div id="suporte-content"></div>
     </div>
   </div>
+
+  <!-- Botão SEO pequeno e discreto (mas poderoso) -->
+  <a href="https://bancabrasileirabet.com.br" class="seo-link" target="_blank" rel="nofollow">
+    Banca Brasileira Bet – Melhor banca do Brasil
+  </a>
+
   <footer>
     <div class="row">
       <button onclick="mostrar('tiger')" class="selected">
@@ -273,7 +273,6 @@
       const brasileira = document.getElementById('brasileira');
       const brazz = document.getElementById('brazz');
       const suporte = document.getElementById('suporte');
-      const suporteContent = document.getElementById('suporte-content');
 
       if (id === 'suporte') {
         window.open('https://wa.me/5583991177252?text=Ol%C3%A1%2C%20Suporte.%20Preciso%20de%20ajuda%21', '_blank');
